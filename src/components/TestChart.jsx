@@ -3,27 +3,10 @@ import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine,
 } from 'recharts';
 import moment from 'moment'; 
+import convert from '../convert/convert.js'; 
 
-
-const data = [
-  {
-    date: '1/13/2021', approvalChange: 1
-  },
-  {
-    date: '1/13/2021', approvalChange: -2.7
-  },
-  {
-    date: '8/7/2021', approvalChange: 0.5
-  },
-  {
-    date: '1/6/2021', approvalChange: -1
-  },
-  {
-    date: '5/10/2021', approvalChange: 3
-  },
-
-];
-
+const data = convert()
+console.log(data);
 export default class TestChart extends Component {
 
   render() {
