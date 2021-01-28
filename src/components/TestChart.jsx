@@ -3,10 +3,11 @@ import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine,
 } from 'recharts';
 import moment from 'moment'; 
-import convert from '../convert/convert.js'; 
+// sample
+import data from '../convert/transformed_data/sample.json';
+// full
+// import data from '../convert/transformed_data/approval.json'; 
 
-const data = convert()
-console.log(data);
 export default class TestChart extends Component {
 
   render() {
@@ -20,20 +21,19 @@ export default class TestChart extends Component {
           top: 5, right: 30, left: 20, bottom: 5,
         }}
       >
-                <defs>
-        <linearGradient id="colorUv" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="100%" stopColor="green" />
-          <stop offset="0%" stopColor="red" />
-        </linearGradient>
-      </defs>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" tickFormatter={timeStr => moment(timeStr).format('MMM. D, YYYY')}/>
         <YAxis />
         <Tooltip />
         <Legend />
         <ReferenceLine y={0} stroke="#000" />
-        {/* <Bar dataKey="disapprovalChange" fill="#8884d8" /> */}
-        <Bar dataKey="approvalChange" fill="url(#colorUv)" />
+        <Bar dataKey="approvalChange">
+        {
+      data.map((entry, index) => (
+        <Cell key={index} fill={entry.approvalChange >= 0 ? "#66ff00" : "#FF0000"} />
+      ))
+    }
+        </Bar>
       </BarChart>
     );
   }
