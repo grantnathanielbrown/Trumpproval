@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import {
   ComposedChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, Line
 } from 'recharts';
-// import combinedData from '/Users/grant/Desktop/Trumpproval/src/convert/transformed_data/combined.json'; 
-import combinedData from '/Users/grant/Desktop/Trumpproval/src/convert/transformed_data/sample.json'; 
+import combinedData from '/Users/grant/Desktop/Trumpproval/src/convert/transformed_data/combined.json'; 
+// import combinedData from '/Users/grant/Desktop/Trumpproval/src/convert/transformed_data/sample.json';
+const slicedData = combinedData.slice(0,20) 
 export default class TestChart extends Component {
 
   render() {
@@ -12,7 +13,7 @@ export default class TestChart extends Component {
       <ComposedChart
         width={1000}
         height={500}
-        data={combinedData.slice(0,5)}
+        data={slicedData}
         margin={{
           top: 5, right: 30, left: 20, bottom: 5,
         }}
