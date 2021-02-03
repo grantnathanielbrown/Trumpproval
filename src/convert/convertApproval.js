@@ -1,6 +1,7 @@
 // const http = require('http');
 const fs = require("fs");
 const papa = require("papaparse");
+const moment = require('moment');
 
 function getAverageRating(arr) {
     let rating =  arr.reduce((accumulator, currentValue) => accumulator + currentValue) / arr.length;
@@ -24,7 +25,7 @@ function convert(results) {
 
         // console.log("the previous object",copyOfPrevious, "\n", "the current object", item);
 
-        if (copyOfPrevious[0]?.date !== item[2]) {
+        if (copyOfPrevious[0]?.date !== moment(item[2]).format('MMM. D, YYYY')) {
             // Extract approval, disapproval, date from current item, map them to empty object. 
             // Then add keys that generate the average approval/disapproval, by calculating sum of Array / length of Array
             
@@ -36,7 +37,7 @@ function convert(results) {
                 averagedDisapproval: undefined
             };
 
-            dataPoint.date = item[2];
+            dataPoint.date = moment(item[2]).format('MMM. D, YYYY');
             dataPoint.approvalArray.push(parseFloat(item[3]));
             dataPoint.disapprovalArray.push(parseFloat(item[6]));
             dataPoint.averagedApproval = getAverageRating(dataPoint.approvalArray);

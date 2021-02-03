@@ -1,28 +1,29 @@
 const fs = require("fs");
 const papa = require("papaparse");
+const moment = require('moment');
 
 const stream = fs.createReadStream("/Users/grant/Desktop/Trumpproval/src/convert/data/TrumpTweets_Jan2017-_END - tweets_01-08-2021.csv");
 
 function convert(results) {
     console.log(results.data);
 
-    let data = results.data;
-    data.shift();
+    let reversedData = results.data.reverse();
+    reversedData.pop();
 
     let transformedData = [];
 
-    data.forEach( (item) => {
+    reversedData.forEach( (item) => {
 
         let copyOfPrevious = transformedData.slice(-1);
 
-        if (copyOfPrevious[0]?.date !== item[7].split(' ')[0]) {
+        if (copyOfPrevious[0]?.date !== moment(item[7].split(' ')[0]).format('MMM. D, YYYY')) {
             
             let dataPoint = {
                 date: undefined,
                 numberOfTweets: 1
             }
-
-            dataPoint.date = item[7].split(' ')[0];
+           
+            dataPoint.date = moment(item[7].split(' ')[0]).format('MMM. D, YYYY');
             transformedData.push(dataPoint);
 
         } else {
