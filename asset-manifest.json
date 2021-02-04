@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/Trumpproval/static/js/main.19fc3ab5.chunk.js",
-    "main.js.map": "/Trumpproval/static/js/main.19fc3ab5.chunk.js.map",
-    "runtime-main.js": "/Trumpproval/static/js/runtime-main.af7b546d.js",
-    "runtime-main.js.map": "/Trumpproval/static/js/runtime-main.af7b546d.js.map",
-    "static/js/2.0854d439.chunk.js": "/Trumpproval/static/js/2.0854d439.chunk.js",
-    "static/js/2.0854d439.chunk.js.map": "/Trumpproval/static/js/2.0854d439.chunk.js.map",
-    "static/js/3.663f4fd9.chunk.js": "/Trumpproval/static/js/3.663f4fd9.chunk.js",
-    "static/js/3.663f4fd9.chunk.js.map": "/Trumpproval/static/js/3.663f4fd9.chunk.js.map",
+    "main.js": "/Trumpproval/static/js/main.2f01381c.chunk.js",
+    "main.js.map": "/Trumpproval/static/js/main.2f01381c.chunk.js.map",
+    "runtime-main.js": "/Trumpproval/static/js/runtime-main.71a60f36.js",
+    "runtime-main.js.map": "/Trumpproval/static/js/runtime-main.71a60f36.js.map",
+    "static/js/2.9380b931.chunk.js": "/Trumpproval/static/js/2.9380b931.chunk.js",
+    "static/js/2.9380b931.chunk.js.map": "/Trumpproval/static/js/2.9380b931.chunk.js.map",
+    "static/js/3.aa58d9a0.chunk.js": "/Trumpproval/static/js/3.aa58d9a0.chunk.js",
+    "static/js/3.aa58d9a0.chunk.js.map": "/Trumpproval/static/js/3.aa58d9a0.chunk.js.map",
     "index.html": "/Trumpproval/index.html",
-    "static/js/2.0854d439.chunk.js.LICENSE.txt": "/Trumpproval/static/js/2.0854d439.chunk.js.LICENSE.txt"
+    "static/js/2.9380b931.chunk.js.LICENSE.txt": "/Trumpproval/static/js/2.9380b931.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.af7b546d.js",
-    "static/js/2.0854d439.chunk.js",
-    "static/js/main.19fc3ab5.chunk.js"
+    "static/js/runtime-main.71a60f36.js",
+    "static/js/2.9380b931.chunk.js",
+    "static/js/main.2f01381c.chunk.js"
   ]
 }
