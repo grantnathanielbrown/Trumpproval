@@ -1,3 +1,30 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+}
+
+.header {
+    background-image: linear-gradient(90deg, #FFA500 0%, #faf0be 100%);
+    background-image:  -webkit-linear-gradient(90deg, #FFA500 0%, #faf0be 100%);
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 5em;
+
+}
+
+.description {
+    font-size: 1.7em;
+}
+
 #approval-change-span {
     color: #66ff00
 }

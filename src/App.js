@@ -1,8 +1,10 @@
 import TestChart from './components/TestChart.jsx'; 
+import Description from './components/Description.jsx'; 
 import "./App.css";
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <Description></Description>
       <TestChart></TestChart>
     </div>
   );
