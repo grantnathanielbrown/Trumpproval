@@ -25,6 +25,10 @@
     font-size: 1.7em;
 }
 
+.correlation {
+    color: red;
+}
+
 #approval-change-span {
     color: #66ff00
 }

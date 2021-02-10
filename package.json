@@ -1,5 +1,5 @@
 {
-  "name": "data_visualization_experiments",
+  "name": "Trumpproval",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,12 +7,14 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/recharts": "^1.8.19",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "react-window": "^1.8.6",
-    "recharts": "^2.0.3",
+    "recharts": "^2.0.6",
+    "statistics.js": "^1.0.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
