@@ -40,3 +40,22 @@
 #averaged-approval-span {
     color: #FFA500
 }
+
+h1 span:nth-of-type(1n) {
+    color: #66ff00;
+}
+
+h1 span:nth-of-type(2n) {
+    color: #FFC0CB
+}
+
+
+.statistics {
+    font-size: 1.4em;
+}
+
+.statistics span {
+    color: #FFA500;
+}
+
+

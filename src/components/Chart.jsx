@@ -12,29 +12,74 @@ export default class TestChart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      approvalChange: true,
-      numberOfTweets: true,
-      averagedApproval: false,
+      showApprovalChange: true,
+      showNumberOfTweets: true,
+      showAveragedApproval: false,
+      brushStatistics: {
+        brushStartDate: "Jan. 23, 2017",
+        brushEndDate: "May. 3, 2017",
+        totalTweets: 516,
+        averageTweets: 5.11,
+        averageApprovalChange: -0.03, 
+        totalApprovalChange: -2.75,
+        PCC: 0.18
+      }
     }
     this.toggleVisibility = this.toggleVisibility.bind(this);
+    this.updateStatistics = this.updateStatistics.bind(this);
   }
 
   toggleVisibility(dataset) {
     this.setState({[dataset]: !this.state[dataset]})
   }
 
-  updateStatistics() {
-    console.log("hi");
-  }
+  updateStatistics(e) {
+    let combinedBrush = combinedData.slice(e.startIndex,e.endIndex + 1);
+    let absBrush = absData.slice(e.startIndex,e.endIndex + 1);
+    console.log(combinedBrush);
 
-  render() {
+    let brushStartDate = combinedBrush[0].date;
+    let brushEndDate = combinedBrush[combinedBrush.length - 1].date;
+
+    let dailyTweetArray = combinedBrush.map( (item) => {
+      return item.numberOfTweets;
+    });
+
+    let totalTweets = dailyTweetArray.reduce((accumulator, currentValue) => accumulator + currentValue);
+
+    let averageTweets = parseFloat((totalTweets / dailyTweetArray.length).toFixed(2));
+
+    let dailyApprovalChangeArray = combinedBrush.map( (item) => {
+      return item.approvalChange;
+    })
+
+    let totalApprovalChange = parseFloat(dailyApprovalChangeArray.reduce((accumulator, currentValue) => accumulator + currentValue).toFixed(2));
+        
+    let averageApprovalChange = parseFloat((totalApprovalChange / dailyApprovalChangeArray.length).toFixed(2));
+
     let statsColumns = {
       approvalChange: "metric",
       numberOfTweets: "metric"
     }
-    let stats = new Statistics(absData, statsColumns);
-    let correlation = stats.correlationCoefficient("approvalChange","numberOfTweets");
-    console.log(correlation);
+
+    let stats = new Statistics(absBrush, statsColumns);
+    
+    let PCC = parseFloat((stats.correlationCoefficient("approvalChange","numberOfTweets").correlationCoefficient).toFixed(2));
+
+    this.setState({
+      brushStatistics: {
+        brushStartDate,
+        brushEndDate,
+        totalTweets,
+        averageTweets,
+        averageApprovalChange,
+        totalApprovalChange,
+        PCC
+      }
+    })
+  }
+
+  render() {
 
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -55,8 +100,8 @@ export default class TestChart extends Component {
           <Tooltip />
           <Legend />
           <ReferenceLine y={0} stroke="#000" />
-          <Brush dataKey='date' onChange={this.updateStatistics} x={width * 0.1} width={width * 0.6} endIndex={365} height={50} stroke="#000000"/>
-          <Bar dataKey={this.state.approvalChange === true ? "approvalChange" : "approvalChange "}>
+          <Brush dataKey='date' onChange={(e) => {this.updateStatistics(e)}} x={width * 0.1} width={width * 0.6} endIndex={100} height={50} stroke="#000000"/>
+          <Bar dataKey={this.state.showApprovalChange === true ? "approvalChange" : "approvalChange "}>
           {
             combinedData.map((entry, index) => (
               <Cell key={index} fill={entry.approvalChange >= 0 ? "#66ff00" : "#FF0000"} />
@@ -64,20 +109,23 @@ export default class TestChart extends Component {
           }
 
           </Bar>
-          <Line type="monotone" dataKey={this.state.numberOfTweets === true ? "numberOfTweets" : "numberOfTweets "} stroke="#FFC0CB" />
-          <Line type="monotone" dataKey={this.state.averagedApproval === true ? "averagedApproval" : "averagedApproval "} stroke="#FFA500" />
+          <Line type="monotone" dataKey={this.state.showNumberOfTweets === true ? "numberOfTweets" : "numberOfTweets "} stroke="#FFC0CB" />
+          <Line type="monotone" dataKey={this.state.showAveragedApproval === true ? "averagedApproval" : "averagedApproval "} stroke="#FFA500" />
         </ComposedChart>
 
-
-        {/* Between x and y, Donald Trump:  
-        Tweeted a total of x times.
-        Averaged a total of x tweets on a daily basis. */}
-
         <div>
-          <Checkbox defaultChecked onChange={() => this.toggleVisibility("approvalChange")}color="primary"/>Show <span id="approval-change-span">Approval Change Bar</span>
-          <Checkbox defaultChecked onChange={() => this.toggleVisibility("numberOfTweets")}color="primary"/>Show <span id="number-of-tweets-span">Number Of Tweets Line</span>
-          <Checkbox onChange={() => this.toggleVisibility("averagedApproval")}color="primary"/>Show <span id="averaged-approval-span">Overall Approval Line</span>
+          <Checkbox defaultChecked onChange={() => this.toggleVisibility("showApprovalChange")}color="primary"/>Show <span id="approval-change-span">Approval Change Bar</span>
+          <Checkbox defaultChecked onChange={() => this.toggleVisibility("showNumberOfTweets")}color="primary"/>Show <span id="number-of-tweets-span">Number Of Tweets Line</span>
+          <Checkbox onChange={() => this.toggleVisibility("showAveragedApproval")}color="primary"/>Show <span id="averaged-approval-span">Overall Approval Line</span>
         </div>
+
+        <h1>Between <span>{this.state.brushStatistics.brushStartDate}</span> and <span>{this.state.brushStatistics.brushEndDate}</span>, Donald Trump:  </h1>
+    <p className="statistics">Averaged a total of <span>{this.state.brushStatistics.averageTweets}</span> tweets on a daily basis.</p>
+    <p className="statistics">Tweeted a total of <span>{this.state.brushStatistics.totalTweets}</span> times.</p>
+    {/* Averaged a daily approval shift of {this.state.brushStatistics.averageApprovalChange}. */}
+    <p className="statistics">Experienced an overall shift of <span>{this.state.brushStatistics.totalApprovalChange}</span> in his approval rating.</p>
+    <p className="statistics">Had a PCC of <span>{this.state.brushStatistics.PCC}</span> between his daily tweet count and approval rating shift.</p>
+
       </div>
     );
   }

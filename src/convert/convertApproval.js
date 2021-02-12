@@ -56,9 +56,14 @@ function convert(results) {
     })
 
     transformedData.forEach( (item, index) => {
-        if(index !== 0) {
+        if(index === 0) {
+            item.approvalChange = 0;
+            item.disapprovalChange = 0;
+        } else {
             item.approvalChange = parseFloat((item.averagedApproval - transformedData[index - 1].averagedApproval).toFixed(2));
             item.disapprovalChange = parseFloat((item.averagedDisapproval - transformedData[index - 1].averagedDisapproval).toFixed(2));
+            // item.approvalChange = Math.abs(parseFloat((item.averagedApproval - transformedData[index - 1].averagedApproval).toFixed(2)));
+            // item.disapprovalChange = Math.abs(parseFloat((item.averagedDisapproval - transformedData[index - 1].averagedDisapproval).toFixed(2)));
         }
     })
     console.log(transformedData.slice(0,20));
