@@ -10,6 +10,10 @@ The goal of this project is to learn about data/data visualization in React/Java
 - Dynamic statement With values that update based on the brush/date selection
 ### TO DO
 
+- Fix pcc
+
+- Allow users to download the datasets
+
 - Label x and y axis, might have to post on GitHub/StackOverflow about the type error
 
 - Add major events during the trump presidency, or allow users to add the events as tooltips themselves
@@ -19,8 +23,6 @@ The goal of this project is to learn about data/data visualization in React/Java
 - Grouping by year / month / week
 
 - Streamline process for modifying data sets
-
-
 
 ## MISCELLANEOUS
 - Replace homepage whenever deploying to GitHub Pages
