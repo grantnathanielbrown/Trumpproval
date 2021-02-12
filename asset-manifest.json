@@ -1,19 +1,22 @@
 {
   "files": {
-    "main.js": "/Trumpproval/static/js/main.2f01381c.chunk.js",
-    "main.js.map": "/Trumpproval/static/js/main.2f01381c.chunk.js.map",
-    "runtime-main.js": "/Trumpproval/static/js/runtime-main.71a60f36.js",
-    "runtime-main.js.map": "/Trumpproval/static/js/runtime-main.71a60f36.js.map",
-    "static/js/2.9380b931.chunk.js": "/Trumpproval/static/js/2.9380b931.chunk.js",
-    "static/js/2.9380b931.chunk.js.map": "/Trumpproval/static/js/2.9380b931.chunk.js.map",
-    "static/js/3.aa58d9a0.chunk.js": "/Trumpproval/static/js/3.aa58d9a0.chunk.js",
-    "static/js/3.aa58d9a0.chunk.js.map": "/Trumpproval/static/js/3.aa58d9a0.chunk.js.map",
+    "main.css": "/Trumpproval/static/css/main.ecbc88a8.chunk.css",
+    "main.js": "/Trumpproval/static/js/main.f0fb22bb.chunk.js",
+    "main.js.map": "/Trumpproval/static/js/main.f0fb22bb.chunk.js.map",
+    "runtime-main.js": "/Trumpproval/static/js/runtime-main.58b0383b.js",
+    "runtime-main.js.map": "/Trumpproval/static/js/runtime-main.58b0383b.js.map",
+    "static/js/2.58eddd36.chunk.js": "/Trumpproval/static/js/2.58eddd36.chunk.js",
+    "static/js/2.58eddd36.chunk.js.map": "/Trumpproval/static/js/2.58eddd36.chunk.js.map",
+    "static/js/3.af251530.chunk.js": "/Trumpproval/static/js/3.af251530.chunk.js",
+    "static/js/3.af251530.chunk.js.map": "/Trumpproval/static/js/3.af251530.chunk.js.map",
     "index.html": "/Trumpproval/index.html",
-    "static/js/2.9380b931.chunk.js.LICENSE.txt": "/Trumpproval/static/js/2.9380b931.chunk.js.LICENSE.txt"
+    "static/css/main.ecbc88a8.chunk.css.map": "/Trumpproval/static/css/main.ecbc88a8.chunk.css.map",
+    "static/js/2.58eddd36.chunk.js.LICENSE.txt": "/Trumpproval/static/js/2.58eddd36.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.71a60f36.js",
-    "static/js/2.9380b931.chunk.js",
-    "static/js/main.2f01381c.chunk.js"
+    "static/js/runtime-main.58b0383b.js",
+    "static/js/2.58eddd36.chunk.js",
+    "static/css/main.ecbc88a8.chunk.css",
+    "static/js/main.f0fb22bb.chunk.js"
   ]
 }
